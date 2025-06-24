@@ -16,7 +16,6 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:logger/logger.dart' as _i974;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
-import '../../functions/route_initializer.dart' as _i718;
 import '../bloc_observer/bloc_observer_service.dart' as _i649;
 import '../datasource_execution/api_manager.dart' as _i984;
 import '../datasource_execution/dio_module.dart' as _i183;
@@ -49,11 +48,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i974.PrettyPrinter>(() => loggerModule.prettyPrinter);
     gh.singleton<_i649.BlocObserverService>(
       () => _i649.BlocObserverService(gh<_i974.Logger>()),
-    );
-    gh.factory<_i718.RouteInitializer>(
-      () => _i718.RouteInitializer(
-        sharedPreferences: gh<_i460.SharedPreferences>(),
-      ),
     );
     gh.lazySingleton<_i361.Dio>(
       () => dioModule.provideDio(gh<_i558.FlutterSecureStorage>()),
