@@ -16,6 +16,8 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:logger/logger.dart' as _i974;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
+import '../../../features/user_details/presentation/view_model/user_details_cubit.dart'
+    as _i136;
 import '../bloc_observer/bloc_observer_service.dart' as _i649;
 import '../datasource_execution/api_manager.dart' as _i984;
 import '../datasource_execution/dio_module.dart' as _i183;
@@ -51,6 +53,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i361.Dio>(
       () => dioModule.provideDio(gh<_i558.FlutterSecureStorage>()),
+    );
+    gh.factory<_i136.UserDetailsCubit>(
+      () => _i136.UserDetailsCubit(gh<_i468.Validator>()),
     );
     return this;
   }

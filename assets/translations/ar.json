@@ -50,5 +50,8 @@
   "InvalidWeight": "وزن غير صالح",
   "InvalidHeight": "طول غير صالح",
   "InvalidAge": "عمر غير صالح",
-  "Ok": "حسنا"
+  "Ok": "حسنا",
+  "Next": "التالي",
+  "Male": "ذكر",
+  "Female": "أنثى"
 }

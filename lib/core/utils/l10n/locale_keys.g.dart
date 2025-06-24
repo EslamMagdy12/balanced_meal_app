@@ -55,4 +55,7 @@ abstract class LocaleKeys {
   static const InvalidHeight = 'InvalidHeight';
   static const InvalidAge = 'InvalidAge';
   static const Ok = 'Ok';
+  static const Next = 'Next';
+  static const Male = 'Male';
+  static const Female = 'Female';
 }

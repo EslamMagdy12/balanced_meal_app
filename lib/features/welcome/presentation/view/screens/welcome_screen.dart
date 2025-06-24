@@ -3,7 +3,8 @@ import 'package:balanced_meal_app/core/utils/l10n/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/assets/app_images.dart';
+import '../../../../../core/assets/app_images.dart';
+import '../../../../../core/utils/routes/route_name.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -43,6 +44,7 @@ class WelcomeScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.displayMedium!.copyWith(
                     fontWeight: FontWeight.w800,
                     fontSize: 48,
+                    color: AppColors.white,
                   ),
                 ),
                 const Spacer(),
@@ -57,7 +59,9 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 32),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, RouteName.userDetailsRoute);
+                  },
                   child: Text(LocaleKeys.OrderFood.tr()),
                 ),
               ],
