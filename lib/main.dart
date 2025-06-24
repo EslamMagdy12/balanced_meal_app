@@ -20,7 +20,7 @@ Future<void> main() async {
       path: Constants.assetsTranslations,
       startLocale: AppStarter.startLocale ?? const Locale(Constants.en),
       fallbackLocale: const Locale(Constants.en),
-      child: BalancedMealApp(),
+      child: const BalancedMealApp(),
     ),
   );
 }

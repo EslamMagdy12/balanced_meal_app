@@ -14,6 +14,12 @@ class AppTheme {
       backgroundColor: AppColors.white,
     ),
     textTheme: const TextTheme(
+      displayLarge: TextStyle(color: AppColors.white),
+      displayMedium: TextStyle(color: AppColors.white),
+      displaySmall: TextStyle(color: AppColors.white),
+      headlineLarge: TextStyle(color: AppColors.white),
+      headlineMedium: TextStyle(color: AppColors.white),
+      headlineSmall: TextStyle(color: AppColors.white),
       titleLarge: TextStyle(color: AppColors.white),
       titleMedium: TextStyle(color: AppColors.white),
       titleSmall: TextStyle(color: AppColors.white),
@@ -32,16 +38,24 @@ class AppTheme {
         backgroundColor: WidgetStateProperty.all(AppColors.orange),
         foregroundColor: WidgetStateProperty.all(AppColors.white),
         shape: WidgetStateProperty.all(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10000)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
         elevation: WidgetStateProperty.all(0),
-        textStyle: WidgetStateProperty.all(
-          const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-            color: AppColors.white,
-          ),
-        ),
+        textStyle: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.disabled)) {
+            return const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              color: AppColors.mediumGray,
+            );
+          } else {
+            return const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              color: AppColors.white,
+            );
+          }
+        }),
         padding: WidgetStateProperty.all(const EdgeInsets.all(16)),
       ),
     ),
