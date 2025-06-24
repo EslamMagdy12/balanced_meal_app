@@ -3,59 +3,45 @@ import 'package:injectable/injectable.dart';
 
 import '../l10n/locale_keys.g.dart';
 
-
 @injectable
 class Validator {
-  String? validateEmail(String input) {
-    if (input.isEmpty) {
-      return LocaleKeys.EmailCannotBeEmpty.tr();
-    } else if (!RegExp(
-      r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
-    ).hasMatch(input)) {
-      return LocaleKeys.InvalidEmail.tr();
+  String? validateGender(String? input) {
+    if (input == null || input.isEmpty) {
+      return LocaleKeys.GenderCannotBeEmpty.tr();
     }
     return null;
   }
 
-  String? validatePassword(String input) {
-    if (input.isEmpty) {
-      return LocaleKeys.PasswordCannotBeEmpty.tr();
-    } else if (!RegExp(
-      r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$',
-    ).hasMatch(input)) {
-      return LocaleKeys.InvalidPassword.tr();
+  String? validateWeight(String? input) {
+    if (input == null || input.isEmpty) {
+      return LocaleKeys.WeightCannotBeEmpty.tr();
+    }
+    final weight = double.tryParse(input);
+    if (weight == null || weight <= 0) {
+      return LocaleKeys.InvalidWeight.tr();
     }
     return null;
   }
 
-  String? validateConfirmPassword(String input, String password) {
-    if (input.isEmpty || input != password) {
-      return LocaleKeys.ConfirmPasswordMustMatch.tr();
+  String? validateHeight(String? input) {
+    if (input == null || input.isEmpty) {
+      return LocaleKeys.HeightCannotBeEmpty.tr();
+    }
+    final height = double.tryParse(input);
+    if (height == null || height <= 0) {
+      return LocaleKeys.InvalidHeight.tr();
     }
     return null;
   }
 
-  String? validateName(String name) {
-    if (name.isEmpty) {
-      return LocaleKeys.NameCannotBeEmpty.tr();
-    } else if (RegExp(r'[!@#<>?":_`~;[\]\\|=+)(*&^%-]').hasMatch(name)) {
-      return LocaleKeys.InvalidName.tr();
-    } else {
-      return null;
+  String? validateAge(String? input) {
+    if (input == null || input.isEmpty) {
+      return LocaleKeys.AgeCannotBeEmpty.tr();
     }
-  }
-
-  String? validatePhoneNumber(String phoneNumber) {
-    if (phoneNumber.isEmpty) {
-      return LocaleKeys.PhoneNumberCannotBeEmpty.tr();
+    final age = int.tryParse(input);
+    if (age == null || age <= 0) {
+      return LocaleKeys.InvalidAge.tr();
     }
-
-    final egyptianPattern = RegExp(r'^\+201[0125][0-9]{8}$');
-
-    if (!egyptianPattern.hasMatch(phoneNumber)) {
-      return LocaleKeys.InvalidPhoneNumber.tr();
-    }
-
     return null;
   }
 }

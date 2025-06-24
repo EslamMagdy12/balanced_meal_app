@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../assets/app_colors.dart';
 
 class AppTheme {
   static ThemeData appTheme = ThemeData(
+    fontFamily: GoogleFonts.poppins().fontFamily,
     scaffoldBackgroundColor: AppColors.white,
     primaryColor: AppColors.orange,
     secondaryHeaderColor: AppColors.black,
@@ -47,9 +49,9 @@ class AppTheme {
       floatingLabelBehavior: FloatingLabelBehavior.always,
       errorStyle: const TextStyle(color: AppColors.red, fontSize: 12),
       contentPadding: const EdgeInsets.all(16),
-      hintStyle: TextStyle(color: AppColors.orange, fontSize: 14),
+      hintStyle: const TextStyle(color: AppColors.orange, fontSize: 14),
       suffixIconColor: AppColors.mediumGray,
-      labelStyle: TextStyle(fontSize: 12, color: AppColors.mediumGray),
+      labelStyle: const TextStyle(fontSize: 12, color: AppColors.mediumGray),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(4),
         borderSide: const BorderSide(width: 1, color: AppColors.lightBlue),
@@ -72,7 +74,7 @@ class AppTheme {
         } else if (states.contains(WidgetState.focused)) {
           return const TextStyle(color: AppColors.orange);
         } else {
-          return TextStyle(color: AppColors.lightBlue);
+          return const TextStyle(color: AppColors.lightBlue);
         }
       }),
     ),

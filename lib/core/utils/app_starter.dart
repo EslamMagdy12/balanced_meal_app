@@ -5,7 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'constants.dart';
 import 'di/di.dart';
 
-
 abstract class AppStarter {
   AppStarter._();
 
