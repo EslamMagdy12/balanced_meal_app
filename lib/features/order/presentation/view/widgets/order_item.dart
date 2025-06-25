@@ -108,7 +108,8 @@ class OrderItem extends StatelessWidget {
                                 const SizedBox(width: 8),
                                 Text(
                                   quantity.toString(),
-                                  style: Theme.of(context).textTheme.bodyMedium,
+                                  style: Theme.of(context).textTheme.bodyLarge
+                                      ?.copyWith(fontWeight: FontWeight.bold),
                                 ),
                                 const SizedBox(width: 8),
                                 CircleIconButton(

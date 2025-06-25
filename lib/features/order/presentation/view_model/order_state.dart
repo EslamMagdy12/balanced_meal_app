@@ -8,12 +8,14 @@ class OrderState extends Equatable {
   final BaseState carbsState;
   final BaseState meatsState;
   final List<FoodEntity> fetchedItems;
+  final BaseState placeOrderState;
 
   const OrderState({
     required this.vegetablesState,
     required this.carbsState,
     required this.meatsState,
     this.fetchedItems = const [],
+    required this.placeOrderState,
   });
 
   OrderState copyWith({
@@ -21,12 +23,14 @@ class OrderState extends Equatable {
     BaseState? carbsState,
     BaseState? meatsState,
     List<FoodEntity>? fetchedItems,
+    BaseState? placeOrderState,
   }) {
     return OrderState(
       vegetablesState: vegetablesState ?? this.vegetablesState,
       carbsState: carbsState ?? this.carbsState,
       meatsState: meatsState ?? this.meatsState,
       fetchedItems: fetchedItems ?? this.fetchedItems,
+      placeOrderState: placeOrderState ?? this.placeOrderState,
     );
   }
 
@@ -36,6 +40,7 @@ class OrderState extends Equatable {
     carbsState,
     meatsState,
     fetchedItems,
+    placeOrderState,
   ];
 }
 
@@ -58,3 +63,5 @@ class DecreaseQuantityAction extends OrderActions {
 
   DecreaseQuantityAction(this.foodName);
 }
+
+class PlaceOrderAction extends OrderActions {}

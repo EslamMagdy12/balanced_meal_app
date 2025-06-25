@@ -59,4 +59,5 @@ abstract class LocaleKeys {
   static const Male = 'Male';
   static const Female = 'Female';
   static const CalOutOf = 'CalOutOf';
+  static const NoItemsInCart = 'NoItemsInCart';
 }
