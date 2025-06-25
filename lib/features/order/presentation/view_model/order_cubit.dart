@@ -2,9 +2,12 @@ import 'package:balanced_meal_app/core/base/base_state.dart';
 import 'package:balanced_meal_app/core/utils/datasource_execution/api_result.dart';
 import 'package:balanced_meal_app/features/order/domain/entity/food_entity.dart';
 import 'package:balanced_meal_app/features/order/domain/use_case/get_vegetables_use_case.dart';
+import 'package:balanced_meal_app/features/order/domain/use_case/place_order_use_case.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../data/models/items_dto.dart';
+import '../../data/models/place_order_request_dto.dart';
 import '../../domain/use_case/get_carbs_use_case.dart';
 import '../../domain/use_case/get_meats_use_case.dart';
 import 'order_state.dart';
@@ -14,6 +17,7 @@ class OrderCubit extends Cubit<OrderState> {
   final GetVegetablesUseCase _getVegetablesUseCase;
   final GetCarbsUseCase _getCarbsUseCase;
   final GetMeatsUseCase _getMeatsUseCase;
+  final PlaceOrderUseCase _placeOrderUseCase;
 
   final List<FoodEntity> fetchedFoods = [];
 
@@ -21,11 +25,13 @@ class OrderCubit extends Cubit<OrderState> {
     this._getVegetablesUseCase,
     this._getCarbsUseCase,
     this._getMeatsUseCase,
+    this._placeOrderUseCase,
   ) : super(
         OrderState(
           vegetablesState: BaseInitialState(),
           carbsState: BaseInitialState(),
           meatsState: BaseInitialState(),
+          placeOrderState: BaseInitialState(),
         ),
       );
 
@@ -41,6 +47,8 @@ class OrderCubit extends Cubit<OrderState> {
         _increaseQuantity(action.foodName);
       case DecreaseQuantityAction():
         _decreaseQuantity(action.foodName);
+      case PlaceOrderAction():
+        _placeOrder();
     }
   }
 
@@ -163,6 +171,39 @@ class OrderCubit extends Cubit<OrderState> {
         emit(
           state.copyWith(
             meatsState: BaseErrorState(
+              errorMessage: result.exception.toString(),
+            ),
+          ),
+        );
+    }
+  }
+
+  Future<void> _placeOrder() async {
+    final selectedItems = state.fetchedItems
+        .where((e) => (e.quantity ?? 0) > 0)
+        .toList();
+
+    final request = PlaceOrderRequestDto(
+      items: selectedItems
+          .map(
+            (e) => ItemsDto(
+              name: e.foodName,
+              quantity: e.quantity,
+              totalPrice: (e.price ?? 0) * (e.quantity ?? 0),
+            ),
+          )
+          .toList(),
+    );
+    emit(state.copyWith(placeOrderState: BaseLoadingState()));
+    final result = await _placeOrderUseCase(request);
+    switch (result) {
+      case SuccessResult<void>():
+        emit(state.copyWith(placeOrderState: BaseSuccessState()));
+        break;
+      case FailureResult<void>():
+        emit(
+          state.copyWith(
+            placeOrderState: BaseErrorState(
               errorMessage: result.exception.toString(),
             ),
           ),

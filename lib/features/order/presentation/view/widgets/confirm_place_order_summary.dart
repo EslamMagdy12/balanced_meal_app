@@ -3,14 +3,16 @@ import 'package:balanced_meal_app/core/utils/l10n/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/utils/routes/route_name.dart';
 import '../../view_model/order_cubit.dart';
 import '../../view_model/order_state.dart';
 
-class OrderSummary extends StatelessWidget {
+class ConfirmPlaceOrderSummary extends StatelessWidget {
   final double userCaloriesRequired;
 
-  const OrderSummary({super.key, required this.userCaloriesRequired});
+  const ConfirmPlaceOrderSummary({
+    super.key,
+    required this.userCaloriesRequired,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -65,13 +67,7 @@ class OrderSummary extends StatelessWidget {
               ElevatedButton(
                 onPressed: (totalCalories > 0 && totalPrice > 0)
                     ? () {
-                        Navigator.of(context).pushNamed(
-                          RouteName.orderSummaryRoute,
-                          arguments: {
-                            'userRequiredCalories': userCaloriesRequired,
-                            'orderCubit': cubit,
-                          },
-                        );
+                        cubit.doIntent(PlaceOrderAction());
                       }
                     : null,
                 style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
@@ -81,7 +77,7 @@ class OrderSummary extends StatelessWidget {
                         : AppColors.lightBlue,
                   ),
                 ),
-                child: Text(LocaleKeys.PlaceOrder.tr()),
+                child: Text(LocaleKeys.Confirm.tr()),
               ),
               const SizedBox(height: 16),
             ],
