@@ -46,12 +46,13 @@ dependencies:
   json_annotation: ^4.9.0
   logger: ^2.6.0
   lottie: ^3.3.1
-  mockito: ^5.4.6
   pretty_dio_logger: ^1.4.0
   retrofit: ^4.4.2
   shared_preferences: ^2.5.3
   skeletonizer: ^2.0.1
   google_fonts: ^6.2.1
+  firebase_core: ^3.14.0
+  cloud_firestore: ^5.6.9
 
 dev_dependencies:
   flutter_test:

@@ -58,4 +58,5 @@ abstract class LocaleKeys {
   static const Next = 'Next';
   static const Male = 'Male';
   static const Female = 'Female';
+  static const CalOutOf = 'CalOutOf';
 }
