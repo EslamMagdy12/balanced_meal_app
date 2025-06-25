@@ -1,21 +1,20 @@
 sealed class BaseState {}
 
-final class BaseInitialState extends BaseState {}
+class BaseInitialState extends BaseState {}
 
-final class BaseLoadingState extends BaseState {}
-
-final class BaseSuccessState extends BaseState {
-  dynamic data;
+class BaseSuccessState<T> extends BaseState {
+  T? data;
 
   BaseSuccessState({this.data});
 }
 
-final class BaseHideLoadingState extends BaseState {}
+class BaseLoadingState extends BaseState {}
 
-final class BaseErrorState extends BaseState {
-  final String errorMessage;
-  final Exception? exception;
-  final int? statusCode;
+class BaseHideLoadingState extends BaseState {}
 
-  BaseErrorState({required this.errorMessage, this.exception, this.statusCode});
+class BaseErrorState extends BaseState {
+  String errorMessage;
+  Exception? exception;
+
+  BaseErrorState({required this.errorMessage, this.exception});
 }

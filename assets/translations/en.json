@@ -50,5 +50,10 @@
   "InvalidWeight": "Invalid weight",
   "InvalidHeight": "Invalid height",
   "InvalidAge": "Invalid age",
-  "Ok": "Ok"
+  "Ok": "Ok",
+  "Next": "Next",
+  "Male": "Male",
+  "Female": "Female",
+  "CalOutOf": "Cal out of",
+  "NoItemsInCart": "No items in cart"
 }

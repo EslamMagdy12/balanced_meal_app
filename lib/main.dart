@@ -11,6 +11,7 @@ import 'core/utils/di/di.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await AppStarter.init();
 
   Bloc.observer = BlocObserverService(getIt<Logger>());
@@ -20,7 +21,7 @@ Future<void> main() async {
       path: Constants.assetsTranslations,
       startLocale: AppStarter.startLocale ?? const Locale(Constants.en),
       fallbackLocale: const Locale(Constants.en),
-      child: BalancedMealApp(),
+      child: const BalancedMealApp(),
     ),
   );
 }

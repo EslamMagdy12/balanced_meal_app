@@ -33,7 +33,7 @@
   "Kg": "كجم",
   "Cm": "سم",
   "CreateYourOrder": "إنشاء طلبك",
-  "Vegetables": "الخضروات",
+  "Vegetables": "الخضراوات",
   "Meats": "اللحوم",
   "Carbs": "الكربوهيدرات",
   "Cal": "سعرات حرارية",
@@ -50,5 +50,10 @@
   "InvalidWeight": "وزن غير صالح",
   "InvalidHeight": "طول غير صالح",
   "InvalidAge": "عمر غير صالح",
-  "Ok": "حسنا"
+  "Ok": "حسنا",
+  "Next": "التالي",
+  "Male": "ذكر",
+  "Female": "أنثى",
+  "CalOutOf": "سعرات حرارية من",
+  "NoItemsInCart": "لا توجد عناصر في السلة"
 }

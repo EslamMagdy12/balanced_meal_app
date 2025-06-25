@@ -6,7 +6,7 @@ import '../assets/app_colors.dart';
 class AppTheme {
   static ThemeData appTheme = ThemeData(
     fontFamily: GoogleFonts.poppins().fontFamily,
-    scaffoldBackgroundColor: AppColors.white,
+    scaffoldBackgroundColor: AppColors.lightBackground,
     primaryColor: AppColors.orange,
     secondaryHeaderColor: AppColors.black,
     dialogTheme: DialogThemeData(
@@ -14,15 +14,21 @@ class AppTheme {
       backgroundColor: AppColors.white,
     ),
     textTheme: const TextTheme(
-      titleLarge: TextStyle(color: AppColors.white),
-      titleMedium: TextStyle(color: AppColors.white),
-      titleSmall: TextStyle(color: AppColors.white),
-      labelLarge: TextStyle(color: AppColors.white),
-      labelMedium: TextStyle(color: AppColors.white),
-      labelSmall: TextStyle(color: AppColors.white),
-      bodyLarge: TextStyle(color: AppColors.white),
-      bodyMedium: TextStyle(color: AppColors.white),
-      bodySmall: TextStyle(color: AppColors.white),
+      displayLarge: TextStyle(color: AppColors.black),
+      displayMedium: TextStyle(color: AppColors.black),
+      displaySmall: TextStyle(color: AppColors.black),
+      headlineLarge: TextStyle(color: AppColors.black),
+      headlineMedium: TextStyle(color: AppColors.black),
+      headlineSmall: TextStyle(color: AppColors.black),
+      titleLarge: TextStyle(color: AppColors.black),
+      titleMedium: TextStyle(color: AppColors.black),
+      titleSmall: TextStyle(color: AppColors.black),
+      labelLarge: TextStyle(color: AppColors.black),
+      labelMedium: TextStyle(color: AppColors.black),
+      labelSmall: TextStyle(color: AppColors.black),
+      bodyLarge: TextStyle(color: AppColors.black),
+      bodyMedium: TextStyle(color: AppColors.black),
+      bodySmall: TextStyle(color: AppColors.black),
     ),
     progressIndicatorTheme: const ProgressIndicatorThemeData(
       color: AppColors.orange,
@@ -32,13 +38,13 @@ class AppTheme {
         backgroundColor: WidgetStateProperty.all(AppColors.orange),
         foregroundColor: WidgetStateProperty.all(AppColors.white),
         shape: WidgetStateProperty.all(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10000)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
         elevation: WidgetStateProperty.all(0),
         textStyle: WidgetStateProperty.all(
           const TextStyle(
-            fontSize: 16,
             fontWeight: FontWeight.w600,
+            fontSize: 16,
             color: AppColors.white,
           ),
         ),
@@ -46,10 +52,11 @@ class AppTheme {
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
+      suffixStyle: const TextStyle(color: AppColors.grayShade, fontSize: 14),
       floatingLabelBehavior: FloatingLabelBehavior.always,
       errorStyle: const TextStyle(color: AppColors.red, fontSize: 12),
       contentPadding: const EdgeInsets.all(16),
-      hintStyle: const TextStyle(color: AppColors.orange, fontSize: 14),
+      hintStyle: const TextStyle(color: AppColors.mediumGray, fontSize: 14),
       suffixIconColor: AppColors.mediumGray,
       labelStyle: const TextStyle(fontSize: 12, color: AppColors.mediumGray),
       enabledBorder: OutlineInputBorder(
