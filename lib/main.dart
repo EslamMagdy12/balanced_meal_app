@@ -11,6 +11,7 @@ import 'core/utils/di/di.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await AppStarter.init();
 
   Bloc.observer = BlocObserverService(getIt<Logger>());

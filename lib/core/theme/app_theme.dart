@@ -6,7 +6,7 @@ import '../assets/app_colors.dart';
 class AppTheme {
   static ThemeData appTheme = ThemeData(
     fontFamily: GoogleFonts.poppins().fontFamily,
-    scaffoldBackgroundColor: AppColors.white,
+    scaffoldBackgroundColor: AppColors.lightBackground,
     primaryColor: AppColors.orange,
     secondaryHeaderColor: AppColors.black,
     dialogTheme: DialogThemeData(
