@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/utils/l10n/locale_keys.g.dart';
 import '../../view_model/order_cubit.dart';
 import '../../view_model/order_state.dart';
-import 'confirm_place_order_summary.dart';
+import 'order_summary.dart';
 import 'order_summary_item.dart';
 
 class OrderSummaryBody extends StatelessWidget {
@@ -36,8 +38,12 @@ class OrderSummaryBody extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 24),
-              ConfirmPlaceOrderSummary(
+              OrderSummary(
                 userCaloriesRequired: userRequiredCalories,
+                buttonLabel: LocaleKeys.Confirm.tr(),
+                onConfirmed: () {
+                  context.read<OrderCubit>().doIntent(PlaceOrderAction());
+                },
               ),
             ],
           ),
