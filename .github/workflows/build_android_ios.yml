@@ -1,8 +1,6 @@
 name: Build Android, iOS
 
 on:
-  push:
-    branches: [master, development]
   pull_request:
     branches: [master, development]
 
@@ -66,8 +64,8 @@ jobs:
       - name: Run Build Runner
         run: flutter pub run build_runner build --delete-conflicting-outputs
 
-      - name: Build iOS
-        run: flutter build ios --release --no-codesign
+      - name: Build IPA
+        run: flutter build ipa --release --no-codesign
 
       - name: Upload IPA as artifact
         uses: actions/upload-artifact@v4
