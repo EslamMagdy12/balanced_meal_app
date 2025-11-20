@@ -39,7 +39,7 @@ jobs:
         run: flutter build apk --release
 
       - name: Upload APK as artifact
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: release-apk
           path: build/app/outputs/flutter-apk/*.apk
@@ -70,7 +70,7 @@ jobs:
         run: flutter build ios --release --no-codesign
 
       - name: Upload IPA as artifact
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: release-ipa
           path: build/ios/ipa/*.ipa
