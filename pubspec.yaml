@@ -33,27 +33,27 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
-  cached_network_image: ^3.4.1
-  dio: ^5.8.0+1
-  easy_localization: ^3.0.7+1
-  equatable: ^2.0.7
-  flutter_bloc: ^9.1.1
-  flutter_secure_storage: ^9.2.4
-  fluttertoast: ^8.2.12
-  get_it: ^8.0.3
-  injectable: ^2.5.0
-  json_annotation: ^4.9.0
-  logger: ^2.6.0
-  lottie: ^3.3.1
-  pretty_dio_logger: ^1.4.0
-  retrofit: ^4.4.2
-  shared_preferences: ^2.5.3
-  skeletonizer: ^2.0.1
-  google_fonts: ^6.2.1
-  firebase_core: ^3.14.0
-  cloud_firestore: ^5.6.9
-  flutter_native_splash: ^2.4.6
+  cupertino_icons:
+  cached_network_image:
+  dio:
+  easy_localization:
+  equatable:
+  flutter_bloc:
+  flutter_secure_storage:
+  fluttertoast:
+  get_it:
+  injectable:
+  json_annotation:
+  logger:
+  lottie:
+  pretty_dio_logger:
+  retrofit:
+  shared_preferences:
+  skeletonizer:
+  google_fonts:
+  firebase_core:
+  cloud_firestore:
+  flutter_native_splash:
 
 dev_dependencies:
   flutter_test:
@@ -64,11 +64,11 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^6.0.0
-  build_runner: ^2.5.4
-  injectable_generator: ^2.7.0
-  json_serializable: ^6.9.5
-  retrofit_generator: ^9.2.0
+  flutter_lints:
+  build_runner:
+  injectable_generator:
+  json_serializable:
+  retrofit_generator:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
