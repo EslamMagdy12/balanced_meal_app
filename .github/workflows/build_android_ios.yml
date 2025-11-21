@@ -66,6 +66,7 @@ jobs:
 
       - name: Install CocoaPods dependencies
         run: pod install --repo-update
+        working-directory: ios
 
       - name: Build IPA
         run: |
