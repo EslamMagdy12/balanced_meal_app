@@ -5,51 +5,51 @@ on:
     branches: [master, development]
 
 jobs:
-  # build_android:
-  #   name: Build Android
-  #   runs-on: ubuntu-latest
+  build_android:
+    name: Build Android
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #     - name: Checkout Repository
-  #       uses: actions/checkout@v3
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-  #     - name: Setup Java
-  #       uses: actions/setup-java@v3
-  #       with:
-  #         distribution: 'temurin'
-  #         java-version: '17'
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
 
-  #     - name: Setup Flutter
-  #       uses: subosito/flutter-action@v2
-  #       with:
-  #         channel: 'stable'
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
         
-  #     - name: Clean Build
-  #       run: flutter clean
+      - name: Clean Build
+        run: flutter clean
 
-  #     - name: Install Dependencies
-  #       run: flutter pub get
+      - name: Install Dependencies
+        run: flutter pub get
 
-  #     - name: Run Build Runner
-  #       run: flutter pub run build_runner build --delete-conflicting-outputs
+      - name: Run Build Runner
+        run: flutter pub run build_runner build --delete-conflicting-outputs
 
-  #     - name: Build App Bundle
-  #       run: flutter build appbundle --release
+      - name: Build App Bundle
+        run: flutter build appbundle --release
 
-  #     - name: Build APK
-  #       run: flutter build apk --release
+      - name: Build APK
+        run: flutter build apk --release
 
-  #     # - name: Upload APK as artifact
-  #     #   uses: actions/upload-artifact@v4
-  #     #   with:
-  #     #     name: release-aab
-  #     #     path: build/app/outputs/bundle/release/*.aab
+      - name: Upload AAB as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-aab
+          path: build/app/outputs/bundle/release/*.aab
 
-  #     - name: Upload APK as artifact
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: release-apk
-  #         path: build/app/outputs/flutter-apk/*.apk
+      - name: Upload APK as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-apk
+          path: build/app/outputs/flutter-apk/*.apk
 
   build_ios:
     name: Build iOS
@@ -76,7 +76,6 @@ jobs:
       - name: POD Repo Update
         run: pod repo update
         working-directory: ios
-
 
       # - name: Install CocoaPods dependencies
       #   run: pod install --repo-update
