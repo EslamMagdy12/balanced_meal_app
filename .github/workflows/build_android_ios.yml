@@ -70,13 +70,11 @@ jobs:
 
       - name: Build IPA
         run: |
-            flutter build ios --release --no-codesign
-            cd build/ios/iphoneos
-            mkdir Payload
-            cd Payload
-            ln -s ../Runner.app
-            cd ..
-            zip -r app-release.ipa Payload
+          flutter build ios --release --no-codesign
+          cd build/ios/iphoneos
+          mkdir Payload
+          mv Runner.app Payload
+          zip -r app-release.ipa Payload
             
       - name: Upload IPA as artifact
         uses: actions/upload-artifact@v4
